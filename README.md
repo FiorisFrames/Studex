@@ -23,3 +23,7 @@ Studex è un'app innovativa che trasforma la vita universitaria in un'esperienza
 ✨ Studex rivoluziona il modo in cui gli studenti si connettono e collaborano. Unisciti alla community e trasforma l’università in un’esperienza più coinvolgente! 🚀
 
 🔗 Seguici per gli ultimi aggiornamenti!
+
+## License  
+This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.  
+
