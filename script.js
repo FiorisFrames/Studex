@@ -10,6 +10,7 @@ function onProjectClick(event) {
     const { target } = event;
     const { index } = target.dataset;
     const { width, height, top, left } = target.getBoundingClientRect();
+    
     const clone = document.createElement("div");
     clone.style.height = height + "px";
     clone.style.width = width + "px";
@@ -20,12 +21,13 @@ function onProjectClick(event) {
     clone.classList.add("project-item");
     clone.classList.add("clone");
     clone.innerHTML = target.innerHTML;
+    
     projectPage.appendChild(clone);
-
+    
     const title = clone.querySelector(".project-title");
     const hero = clone.querySelector(".project-hero");
     const duration = 1.5;
-
+    
     gsap.timeline()
         .add("scaleFS")
         .to(clone, {
@@ -77,7 +79,7 @@ function onProjectClose() {
     const projectHero = clone.querySelector(".project-hero");
     const projectContent = clone.querySelector(".project-content");
     const duration = 1;
-
+    
     gsap.timeline()
         .add("close")
         .to([projectHero, projectContent], {
@@ -85,7 +87,7 @@ function onProjectClose() {
             height: "0vh",
             padding: "0",
             ease: Expo.easeInOut
-        },  "close")
+        }, "close")
         .to(clone, {
             duration,
             minHeight: "0vh",
