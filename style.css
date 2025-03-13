@@ -44,37 +44,33 @@ h1 {
     cursor: default;
     filter: saturate(0);
     opacity: 0.6;
-    .project-title {
-        opacity: 0;
-    }
 }
 
-/* Remove pointer events, to prevent unintended click targets */
+.project-item.active .project-title {
+    opacity: 0;
+}
+
+/* Rimuove i pointer events per evitare click indesiderati */
 .project-item * {
     pointer-events: none;
     user-select: none;
 }
 
-#projects {
-    .project-item:nth-child(n + 3) {
-        grid-column: span 2;
-        height: clamp(30vh, 45vh, 50vh);
-    }
-    .project-item:nth-child(1) {
-        grid-row: 1/3;
-        height: 100%;
-    }
-    .project-item:nth-child(2) {
-        
-    }
-    .project-item:nth-child(3) {
-        
-        grid-column: 2/3;
-    }
-    .project-item:nth-child(4) {
-        
-    }
+/* Grid Layout per i progetti */
+#projects .project-item:nth-child(n + 3) {
+    grid-column: span 2;
+    height: clamp(30vh, 45vh, 50vh);
 }
+
+#projects .project-item:nth-child(1) {
+    grid-row: 1/3;
+    height: 100%;
+}
+
+#projects .project-item:nth-child(3) {
+    grid-column: 2/3;
+}
+
 .project-title {
     font-size: 36px;
     line-height: 1;
@@ -83,10 +79,11 @@ h1 {
     transition: opacity 0.3s ease-out;
     margin-bottom: 15px;
     z-index: 1;
-    small {
-        font-weight: normal;
-        font-size: 0.65em;
-    }
+}
+
+.project-title small {
+    font-weight: normal;
+    font-size: 0.65em;
 }
 
 .project-hero {
@@ -105,23 +102,24 @@ h1 {
     left: 0;
     overflow: hidden;
     z-index: 0;
-    img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        mix-blend-mode: multiply;
-        opacity: 1;
-    }
 }
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    opacity: 1;
+}
+
+/* Effetto hover sulle immagini */
 #projects .project-image {
     transition: all 0.6s ease-out;
     transform: scale(1.05);
     opacity: 1;
 }
 
-// Hover State
 #projects:hover .project-item:hover .project-image {
     opacity: 1;
     transform: scale(1);
@@ -135,13 +133,15 @@ h1 {
     padding: 5vw 20vw;
     overflow: hidden;
     z-index: 1;
-    p {
-        line-height: 1.5;
-        margin: 30px 0;
-    }
-    img {
-        width: 100%;
-    }
+}
+
+.project-content p {
+    line-height: 1.5;
+    margin: 30px 0;
+}
+
+.project-content img {
+    width: 100%;
 }
 
 #project-close {
@@ -161,13 +161,13 @@ h1 {
     cursor: pointer;
     pointer-events: none;
     transition: all 0.6s ease-out;
-    background: rgba(black, 0.15);
-    box-shadow: 0 1px 30px rgba(black, 0.15);
-    text-shadow: 0 1px 30px rgba(black, 0.15);
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 30px rgba(0, 0, 0, 0.15);
 }
 
-// Read More arrow
-#project-page .project-image:before {
+/* Freccia "Leggi di più" */
+#project-page .project-image::before {
     content: "\2193";
     font-size: 2vw;
     position: absolute;
@@ -176,7 +176,7 @@ h1 {
     margin: auto;
     bottom: 30px;
     color: white;
-    border: 1px solid rgba(white, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
     width: 48px;
     height: 48px;
@@ -201,17 +201,17 @@ h1 {
     }
 }
 
-// Active state
-body.project-active {
-    #project-page .project-image:before,
-    #project-close {
-        opacity: 1;
-        pointer-events: all;
-    }
-    #project-page .project-item {
-        cursor: initial;
-    }
-    #project-page .project-content {
-        display: block;
-    }
+/* Stato attivo della pagina progetto */
+body.project-active #project-page .project-image::before,
+body.project-active #project-close {
+    opacity: 1;
+    pointer-events: all;
+}
+
+body.project-active #project-page .project-item {
+    cursor: initial;
+}
+
+body.project-active #project-page .project-content {
+    display: block;
 }
